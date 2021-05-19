@@ -1,0 +1,36 @@
+.appointment-componant{
+    display: flex;
+    width: 89%;
+    height: 75px;
+    margin: auto;
+    margin-bottom: 11px;
+    background-color: #F4FBFE;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+}
+.appointment-componant img{
+    height: 60px;
+    width: 60px;
+    margin-top: 10px;
+    margin-left: 8px;
+}
+.appointment-data {
+    width: 312px;
+    margin-top: 14px;
+    margin-left: 11px;
+}
+.appointment-componant .icon{
+    font-size: 21px;
+    margin-top: 26px;
+}
+.appointment-componant p{
+    font-size: 12px;
+}
+.appointment-componant h3{
+    font-size: 14px;
+    margin-bottom: 1px;
+    color: rgb(43, 170, 233);
+}

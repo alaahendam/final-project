@@ -1,0 +1,20 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0%;
+}
+.container-componant{
+    display: flex;
+    justify-content: center;
+    background-color: #FBFBFB;
+    padding-left: 180px;
+    padding-top: 90px;
+    width: 100%;
+    min-height: 1000px;
+}
+@media only screen and (max-width: 900px){
+    .container-componant{
+        padding-left: 692px;
+    }
+}

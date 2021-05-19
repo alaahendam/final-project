@@ -1,0 +1,123 @@
+.session{
+    background-color: white;
+    width: 463px;
+    min-height: 515px;
+    margin-left: 18px;
+    margin-right: 25px;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+}
+.session .about-data img{
+    width: 130px;
+    height: 130px;
+}
+.about-data{
+    margin-top: 25px;
+}
+.center{
+    text-align: center;
+}
+.session .about-data h3{
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+.session .about-data p{
+    font-size: 14px;
+    margin-bottom: -3px;
+}
+.session .about-data2{
+    width: 415px;
+    min-height: 440px;
+    background-color:#F4FBFE;
+    margin: auto;
+    margin-top: 15px;
+    padding-left: 10px;
+}
+.session .about-data2 i{
+    color: #dadada;
+    font-size: 15px;
+}
+.session .about-data2 .rating{
+    color: gold;
+}
+.session .about-data2 .about-data3{
+    height: 100px;
+}
+.session .about-data2 .location{
+    width: 413px;
+    height: 70px;
+    display: flex;
+    margin-top: 4px;
+}
+.session .about-data2 .location i{
+    font-size: 28px;
+    color: #14274E;
+}
+.session .about-data2  h3{
+    font-size: 18px;
+}
+.session .about-data2  p{
+    font-size: 15px;
+}
+.session .about-data2 .ratinglist{
+    margin-left: 310px;
+}
+.session .about-data2  .available_dates{
+    background-color: white;
+    width: 380px;
+    height: 45px;
+    margin: auto;
+    margin-bottom: 6px;
+    border-radius: 7px;
+    display: flex;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+}
+.session .about-data2  .available_dates i{
+    font-size: 20px;
+    color: #8a8989;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+.session .about-data2  .available_dates p{
+    font-size: 15px;
+    color: #646262;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+.session .about-data2 .btn {
+    width: 279px;
+    height: 53px;
+    background-color: #61C5F7;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 14px;
+    margin-left: 19px;
+    margin-bottom: 25px;
+}
+.session .about-data2 .heart-icon{
+    margin-left: 38px;
+    display: inline;
+    cursor: pointer;
+}
+.session .about-data2 .heart-icon i{
+    font-size: 27px;
+}
+.session .about-data2 .fav-icon {
+    margin-left: 38px;
+    display: inline;
+
+}
+.session .about-data2 .fav-icon i{
+    font-size: 27px;
+    color: red;
+}
+

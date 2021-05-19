@@ -1,0 +1,186 @@
+
+*{
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0%;
+}
+.Home-Doctor .logo{
+    width: 40px;
+}
+.Home-Doctor nav .logo{
+    flex: 19%;
+}
+.Home-Doctor .logo img{
+    width: 130px;
+    height: 50px;
+}
+.Home-Doctor .logo a:hover{
+    background-color: transparent;
+}
+.Home-Doctor .row{
+    display: flex;
+    align-items: center;
+}
+.Home-Doctor .container{
+    
+    width: 1290px;
+    margin: auto;
+}
+.fixed{
+    position: fixed;
+}
+.Home-Doctor nav{
+    width: 100%;
+    height: 73px;
+    padding: 10px 0px;
+    position: fixed;
+    /*background-color: #f4f4f4;*/
+    background-color: #f4f4f4;
+    z-index: 4242424;
+}
+
+.Home-Doctor .search_bar .icon{
+    position: relative;
+    left: 44px;
+    font-size: 16px;
+}
+.Home-Doctor .search_bar{
+    flex: 49%;
+    height: 60px;
+    color: #8A9EAD;
+}
+.Home-Doctor .search_bar input{
+    color: #8A9EAD;
+    padding-left: 50px;
+    font-size: 16px;
+    width: 460px;
+    height: 42px;
+    display: inline-block;
+    border: 1px solid #eaeaea;
+    border-radius: 6px;
+    box-sizing: border-box;
+    outline: none;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    
+}
+.Home-Doctor .username{
+    flex: 20%;
+    color: rgb(57 57 132);
+}
+
+.Home-Doctor .username img{
+    margin-right: 9px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.Home-Doctor .username .icon{
+    margin-right: 9px;
+    text-align: center;
+    font-size: 20px;
+    width: 43px;
+    height: 42px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.Home-Doctor .username i{
+    margin-top: 11px;
+}
+.Home-Doctor .notifi_icon{
+    background-color: white;
+    color: #61C5F7;
+}
+.Home-Doctor .change_icon_color{
+    color: white;
+    background-color: #61C5F7;
+}
+.Home-Doctor .hide{
+    visibility: hidden;
+  }
+.Home-Doctor .notifi_data{
+    position: absolute;
+    top: 73px;
+    right: 200px;
+    width: 340px;
+    height: 500px;
+    background-color: white;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    overflow: auto;
+}
+.Home-Doctor .profile_logout{
+    position: absolute;
+    top: 73px;
+    right: 65px;
+    width: 265px;
+    height: 153px;
+    background-color: white;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+
+
+.Home-Doctor header{
+    background-color: #f4f4f4;
+}
+.Home-Doctor .menu{
+    width: 180px;
+    height: 555px;
+    background-color: #f4f4f4;
+    margin-top: 71px;
+    padding-top: 96px;
+}
+.Home-Doctor ul{
+    width: 100%;
+    list-style: none;
+    padding: 0px;
+}
+.Home-Doctor .menu li a{
+    text-decoration: none;
+    color: #8A9EAD;
+    font-size: 19px;
+    font-weight: 400;
+}
+.Home-Doctor .menu i{
+    margin-right: 9px;
+    margin-left: 30px;
+}
+.Home-Doctor .menu li{
+    height: 57px;
+    padding-top: 13px;
+}
+.Home-Doctor .menu h3{
+    color: #14274E;
+    margin-bottom: 30px;
+    margin-left: 30px;
+    font-size: 26px;
+    font-weight: 700;
+}
+.Home-Doctor li:hover{
+    background-color: #FBFBFB;
+}
+.Home-Doctor li:hover a{
+    color: #61C5F7;
+}
+.Home-Doctor .active{
+    background-color: #FBFBFB;
+}
+
+

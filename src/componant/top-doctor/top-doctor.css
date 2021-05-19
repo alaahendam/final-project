@@ -1,0 +1,43 @@
+.topdoctor-componant{
+    display: flex;
+    width: 93%;
+    height: 77px;
+    margin: auto;
+    margin-bottom: 11px;
+    background-color: #F4FBFE;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+}
+.topdoctor-componant img{
+    height: 57px;
+    width: 57px;
+    margin-top: 10px;
+    margin-left: 8px;
+}
+.topdoctor-componant .topdoctor-data {
+    width: 360px;
+    margin-top: 14px;
+    margin-left: 11px;
+}
+
+.topdoctor-componant .row{
+    display: flex;
+}
+.topdoctor-componant i{
+    color: #dadada;
+    font-size: 13px;
+}
+.topdoctor-componant .rating{
+    color: #2baae9;
+}
+.topdoctor-componant .topdoctor-data p{
+    font-size: 12px;
+}
+.topdoctor-componant .topdoctor-data h3{
+    font-size: 14px;
+    margin-bottom: 1px;
+    color: #2baae9;
+}

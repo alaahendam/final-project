@@ -1,0 +1,31 @@
+.notifi_data .appointment-componant{
+    display: flex;
+    width: 93%;
+    height: 74px;
+    margin: auto;
+    margin-bottom: 13px;
+    background-color: #F4FBFE;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+}
+.notifi_data .appointment-componant img{
+    height: 60px;
+    width: 60px;
+    margin-top: 6px;
+    margin-left: 8px;
+}
+.notifi_data .appointment-data {
+    width: 234px;
+    margin-top: 14px;
+    margin-left: 11px;
+}
+.notifi_data .appointment-componant .icon{
+    font-size: 21px;
+    margin-top: -7px;
+}
+.notifi_data h3{
+    font-size: 30px;
+}
