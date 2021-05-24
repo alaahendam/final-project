@@ -73,6 +73,7 @@ class Left extends react.Component{
                     <p className={`${this.state.nextapp}`} onClick={()=>this.setState({nextapp:'appointment-activate',prevapp:''})}>Next Appointment</p>
                     <p className={`${this.state.prevapp}`} onClick={()=>this.setState({nextapp:'',prevapp:'appointment-activate'})}>Prevoius Appointment</p>
                 </div>
+                {console.log(this.state.nextdata)}
                 {this.state.nextdata?(
                     this.state.nextdata.map((app)=> <Appointment key={app.id}{...app}/>)
                 ):(

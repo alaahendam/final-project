@@ -23,6 +23,7 @@ class Notifi extends react.Component{
                     .then((res) => res.json())
                     .then((data) => {
                         this.setState({notifidata:data.notifications})
+                        console.log(data)
                         
                     })
                     .catch((err) => console.log(err));

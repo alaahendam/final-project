@@ -18,7 +18,7 @@ class SignUpInfo extends react.Component{
     Submit =(event)=>{ 
         event.preventDefault();
         const {location, phone, gender, Specialist}=this.state;
-        const data={'location':location,'phone':phone,'gender':gender, 'spec_id':Specialist};
+        const data={'location':location,'clinck_location':location,'phone':phone,'gender':gender, 'spec_id':Specialist};
         console.log(data);
         console.log(window.localStorage.getItem(
             "access_token"
