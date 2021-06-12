@@ -1,16 +1,19 @@
-import react from 'react'
-import {Link} from 'react-router-dom'
+import React from 'react'
+import {withRouter,Link} from 'react-router-dom'
 import './doctor-artboard.css'
 import Ai from '../../image/AI.png'
 import Doctors from '../../image/Doctors.png'
-class DoctorArtboard extends react.Component{
+class DoctorArtboard extends React.Component{
     constructor(){
         super()
         this.state={
             data:[],
             next_data:[],
             currapp:'appointment-activate',
-            nextapp:''
+            nextapp:'',
+            prevapp:'',
+            name:'',
+            prev:false
         }
     }
     componentDidMount(){
@@ -25,7 +28,24 @@ class DoctorArtboard extends react.Component{
         })
             .then((res) => res.json())
             .then((data) => {
+                console.log(data)
                 this.setState({data:data,next_data:data.current_appointments})
+            })
+            .catch((err) => console.log(err));
+        fetch("https://thediseasefighter.herokuapp.com/user", {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${window.localStorage.getItem(
+                    "token"
+                )}`,
+                "Content-Type": "application/json",
+            },
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data)
+                this.setState({name:data.current_user.name})
+
             })
             .catch((err) => console.log(err));
     }
@@ -36,7 +56,7 @@ class DoctorArtboard extends react.Component{
                 <div className='DoctorArtboard-header'>
                     <div className='left2'>
                         <div>
-                            <h3>Welcome Mariam</h3>
+                            <h3>Hello! {this.state.name}</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                              Culpa, quidem quibusdam!  </p>
                              <Link to='/appointment'>Show Meeting</Link>
@@ -47,7 +67,7 @@ class DoctorArtboard extends react.Component{
                     </div>
                     <div className='right2'>
                     <div>
-                        <h3>Welcome Mariam</h3>
+                        <h3>Hello! {this.state.name}</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             Culpa, quidem quibusdam!  </p>
                             <a href='#'>Using Model</a>
@@ -61,8 +81,9 @@ class DoctorArtboard extends react.Component{
                     <div className='bg2'>
                         <div className='appointment-header'>
                             <h3>My Appointment</h3>
-                            <p className={`${this.state.currapp}`} onClick={()=>this.setState({currapp:'appointment-activate',nextapp:'',next_data:this.state.data.current_appointments})}>Today Appointment</p>
-                            <p className={`${this.state.nextapp}`} onClick={()=>this.setState({currapp:'',nextapp:'appointment-activate',next_data:this.state.data.future_appointments})}>Future Appointment</p>
+                            <p className={`${this.state.currapp}`} onClick={()=>this.setState({currapp:'appointment-activate',nextapp:'',prevapp:'',next_data:this.state.data.current_appointments,prev:false})}>Today Appointment</p>
+                            <p className={`${this.state.nextapp}`} onClick={()=>this.setState({currapp:'',nextapp:'appointment-activate',prevapp:'',next_data:this.state.data.future_appointments,prev:false})}>Future Appointment</p>
+                            <p className={`${this.state.prevapp}`} onClick={()=>this.setState({currapp:'',nextapp:'',prevapp:'appointment-activate',next_data:this.state.data.previous_appointments,prev:true})}>Previous Appointment</p>
                         </div>
                                 <table>
                             <tr>
@@ -79,10 +100,10 @@ class DoctorArtboard extends react.Component{
                                     <td>{appoint.name}</td>
                                     <td>{appoint.date}</td>
                                     <td>{appoint.time}</td>
-                                    <td><a href={`appointment/${appoint.id}`} className='btn'>Show Meeting</a></td>
+                                    <td><button className='btn' onClick={()=>this.props.history.replace({pathname:`appointment/${appoint.id}`,state:{prev:this.state.prev}})}>Show Meeting</button></td>
                                 </tr>
                                 ))
-                            ):(alert('NO Appointment'))}
+                            ):(null)}
                             
                         </table>
                     </div>
@@ -91,4 +112,4 @@ class DoctorArtboard extends react.Component{
         )
     }
 }
-export default DoctorArtboard
+export default withRouter(DoctorArtboard)

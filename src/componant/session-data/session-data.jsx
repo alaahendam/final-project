@@ -1,14 +1,15 @@
-import react from 'react'
+import React from 'react'
+import {withRouter} from 'react-router-dom'
 import LeftDoctor from '../left-doctor/leftdoctor'
 import Session from '../session/session'
 import '../container/container.css'
-class SessionData extends react.Component{
+class SessionData extends React.Component{
     constructor(props){
         super(props)
         this.state={
             all_doctors:[],
             id:1,
-            about_flag:true,
+            about_flag:props.location.state?(props.location.state.update?(false):(true)):(true),
             favlist:[]
         }
     }
@@ -47,6 +48,7 @@ class SessionData extends react.Component{
         })
         .catch((err) => console.log(err));
                 }
+                
    render(){
     return(
         <div className='container-componant'>
@@ -56,4 +58,4 @@ class SessionData extends react.Component{
     )
    }
 }
-export default SessionData;
+export default withRouter(SessionData);

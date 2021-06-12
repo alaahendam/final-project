@@ -1,21 +1,29 @@
 .appointment-componant{
     display: flex;
-    width: 89%;
-    height: 75px;
-    margin: auto;
+    width: 80%;
+    height: 65px;
+    margin-left: 20px;
     margin-bottom: 11px;
-    background-color: #F4FBFE;
+    background-color: #f4f4f4;
     border-radius: 7px;
     -webkit-border-radius: 7px;
     -moz-border-radius: 7px;
     -ms-border-radius: 7px;
     -o-border-radius: 7px;
 }
+.appointment-componant:hover{
+    background-color: #f4fbfe;
+}
 .appointment-componant img{
-    height: 60px;
-    width: 60px;
-    margin-top: 10px;
+    height: 50px;
+    width: 50px;
+    margin-top: 6px;
     margin-left: 8px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
 }
 .appointment-data {
     width: 312px;
@@ -24,7 +32,11 @@
 }
 .appointment-componant .icon{
     font-size: 21px;
-    margin-top: 26px;
+    margin-top: 20px;
+    position: relative;
+}
+.appointment-componant .icon i{
+    cursor: pointer;
 }
 .appointment-componant p{
     font-size: 12px;
@@ -33,4 +45,20 @@
     font-size: 14px;
     margin-bottom: 1px;
     color: rgb(43, 170, 233);
+}
+.update-appoint{
+    width: 92px;
+    height: 56px;
+    background-color: #f4f4f4;
+    position: absolute;
+    top: -56px;
+    border-radius: 7px;
+    text-align: center;
+}
+.update-appoint p{
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #14274E;
+    cursor: pointer;
 }

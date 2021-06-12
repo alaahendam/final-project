@@ -26,19 +26,6 @@ const Register =()=>{
                      {token==''||next=='def'?(<SignUp settoken={settoken} setcars={setcars} setspec={setspec}/>)
                      :(<SignUpInfo spec={spec}/>)}
                     </div>
-                    <section class="carousel">
-
-                <aside class="carousel__navigation">
-                    <ol class="carousel__navigation-list">
-                        <li class="carousel__navigation-item">
-                            <button class="carousel__navigation-button" style={{backgroundColor:color.first}}  onClick={()=>(setcars('def'),setcolor({'first':'#61C5F7','second':''}))}></button>
-                        </li>
-                        <li class="carousel__navigation-item">
-                            <button class="carousel__navigat-button" id="dot" style={{backgroundColor:color.second}} onClick={()=>(setcars('next'),setcolor({'first':'','second':'#61C5F7'}))}></button>
-                        </li>
-                    </ol>
-                </aside>
-            </section>
                 
                 </div>
             </div>

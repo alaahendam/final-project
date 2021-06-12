@@ -46,9 +46,10 @@
     font-size: 16px;
 }
 .Home-Doctor .search_bar{
-    flex: 49%;
+    flex: 40%;
     height: 60px;
     color: #8A9EAD;
+    position: relative;
 }
 .Home-Doctor .search_bar input{
     color: #8A9EAD;
@@ -100,7 +101,9 @@
 .Home-Doctor .notifi_icon{
     background-color: white;
     color: #61C5F7;
+    cursor: pointer;
 }
+
 .Home-Doctor .change_icon_color{
     color: white;
     background-color: #61C5F7;
@@ -113,27 +116,27 @@
     top: 73px;
     right: 200px;
     width: 340px;
-    height: 500px;
+    height: 450px;
     background-color: white;
     border-radius: 4px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
-    overflow: auto;
 }
 .Home-Doctor .profile_logout{
     position: absolute;
     top: 73px;
-    right: 65px;
-    width: 265px;
-    height: 153px;
+    right: 80px;
+    width: 200px;
+    height: 100px;
     background-color: white;
     border-radius: 4px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
+    
 }
 
 
@@ -182,5 +185,7 @@
 .Home-Doctor .active{
     background-color: #FBFBFB;
 }
-
+.userdata{
+    cursor: pointer;
+}
 

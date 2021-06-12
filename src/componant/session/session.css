@@ -1,18 +1,25 @@
 .session{
     background-color: white;
     width: 463px;
-    min-height: 515px;
-    margin-left: 18px;
+    height: 515px;
+    margin-left: 690px;
     margin-right: 25px;
     border-radius: 7px;
     -webkit-border-radius: 7px;
     -moz-border-radius: 7px;
     -ms-border-radius: 7px;
     -o-border-radius: 7px;
+    position: fixed;
+    overflow: auto;
 }
 .session .about-data img{
     width: 130px;
     height: 130px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
 }
 .about-data{
     margin-top: 25px;
@@ -32,7 +39,7 @@
 .session .about-data2{
     width: 415px;
     min-height: 440px;
-    background-color:#F4FBFE;
+    background-color: #f4f4f4;
     margin: auto;
     margin-top: 15px;
     padding-left: 10px;
@@ -43,6 +50,7 @@
 }
 .session .about-data2 .rating{
     color: gold;
+    margin-top: 10px;
 }
 .session .about-data2 .about-data3{
     height: 100px;

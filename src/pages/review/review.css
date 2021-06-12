@@ -1,0 +1,55 @@
+.review{
+    width: 450px;
+    height: 500px;
+    background-color: #f4fbfe;
+    border-radius:7px;
+    -webkit-border-radius:7px;
+    -moz-border-radius:7px;
+    -ms-border-radius:7px;
+    -o-border-radius:7px;
+    text-align: center;
+    padding-top: 30px;
+}
+.review i{
+    color: #dadada;
+    font-size: 30px;
+    cursor: pointer;
+    margin-right: 2px;
+    margin-bottom: 20px;
+}
+.review .rating{
+    color: #2baae9;
+}
+.review img{
+    width: 169px;
+    height: 169px;
+    border-radius:50%;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    -ms-border-radius:50%;
+    -o-border-radius:50%;
+}
+.review .review-comment{
+    width: 270px;
+    height: 100px;
+    padding: 10px;
+    color: #4c5b66;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background-color: #f4f4f4;
+    border-radius:7px;
+    -webkit-border-radius:7px;
+    -moz-border-radius:7px;
+    -ms-border-radius:7px;
+    -o-border-radius:7px;
+}
+.review .btn {
+    width: 189px;
+    padding: 16px 0px;
+    background-color: #61C5F7;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}

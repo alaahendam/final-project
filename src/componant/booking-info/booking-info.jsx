@@ -1,8 +1,9 @@
-import react from 'react'
+import React from 'react'
+import { withRouter} from 'react-router-dom'
 import'./booking-info.css'
 import dates from'./data'
 import bookingimg from '../../image/booking.png'
-class BookingInfo extends react.Component{
+class BookingInfo extends React.Component{
     constructor(props){
         super(props)
         this.state={
@@ -12,6 +13,7 @@ class BookingInfo extends react.Component{
             name:'',
             gender:'',
             phone:'',
+            medicines:'',
             comment:'',
             day_id:null,
             period_id:null,
@@ -35,8 +37,11 @@ class BookingInfo extends react.Component{
           .catch((err) => {console.log(err)});
     }
     Booking=()=>{
-        const {day,time,name,gender,phone,comment,period_id}=this.state
-        const data={
+        const {day,time,name,gender,phone,medicines,comment,period_id}=this.state
+        var root=null
+        var method=null
+        var previous_period_id=period_id
+        var data={
                     "day":day,
                     "time":time,
                     "am_pm":time.slice(-2),
@@ -45,11 +50,25 @@ class BookingInfo extends react.Component{
                     "phone":phone,
                     "comment":comment,
                     "period_id":period_id,
-                    "previous_period_id":period_id,
+                    "previous_period_id":previous_period_id,
                     error:''
         }
-        fetch(`https://thediseasefighter.herokuapp.com/doctors/${this.props.id}/sessions`, {
-                    method: "POST",
+        if (this.props.location.state) {
+            if(this.props.location.state.update){
+                root=`https://thediseasefighter.herokuapp.com/sessions/${this.props.location.state.session_id}`
+                method="PATCH"
+                previous_period_id=this.props.location.state.period_id
+                
+            }
+            else{
+                root=`https://thediseasefighter.herokuapp.com/doctors/${this.props.id}/sessions`
+                method="POST"
+                data["medicines"]=medicines
+            }
+        }
+        console.log(data)
+        fetch(`${root}`, {
+                    method: `${method}`,
                     body:JSON.stringify(data),
                     headers: {
                         Authorization: `Bearer ${window.localStorage.getItem(
@@ -78,7 +97,8 @@ class BookingInfo extends react.Component{
         return(
             <div className='booking-info'>
                 {!this.state.booking_success?(
-                    <div>
+                    this.state.dates.dates?(
+                        <div>
                         <div className='booking-header'>
                             <h3>Booking Information</h3>
                             <p>fill your contact details</p>
@@ -126,11 +146,19 @@ class BookingInfo extends react.Component{
                 <label htmlFor="Phone">Phone</label>
                 <input type='text' className='text phone' placeholder='+20012234567' onChange={(e)=>{this.setState({phone:e.target.value})}} required/>
                 </div>
+                
             </div>
+            {!this.props.location.state.update?(
+                <div>
+                <label htmlFor="medicines">Medicines</label>
+                <input type='text' className='text name' placeholder='Enter all medicine you take' onChange={(e)=>{this.setState({medicines:e.target.value})}} required/>
+                </div>
+            ):(null)}
             <label htmlFor="comment">Comment</label>
                 <input type='text' className='text comment' placeholder='Enter Your Comment' onChange={(e)=>{this.setState({comment:e.target.value})}}/>
                 <button className='btn5' onClick={this.Booking}>Book Appointment</button>
                     </div>
+                    ):(null)          
                 ):(
                     <div>
                         <img src={bookingimg} alt='booking image'/>
@@ -146,4 +174,4 @@ class BookingInfo extends react.Component{
     }
     
 }
-export default BookingInfo;
+export default withRouter(BookingInfo);

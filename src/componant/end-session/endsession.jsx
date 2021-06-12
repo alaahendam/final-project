@@ -5,7 +5,7 @@ import '../../componant/container/container.css'
 import Docu from '../../image/Docu-diag.png'
 import Img from '../../image/img-diag.png'
 
-const EndSession=({data,match})=>{
+const EndSession=({data,match,history,location})=>{
     const [Session,SetSession]=useState(false)
     const [Diagnosis,SetDiagnosis]=useState('')
     const [Medicine,SetMedicine]=useState('')
@@ -57,6 +57,7 @@ const EndSession=({data,match})=>{
             .then(response => response.json())
             .then(data => {
               console.log(data)
+              history.push('/home')
             })
             .catch(error => {
               console.error(error)
@@ -96,6 +97,8 @@ const EndSession=({data,match})=>{
                         <div className='custom-input about-style'>{patient[0].comment}</div>
                         <h3>diagnosis</h3>
                         <div className='custom-input'>{patient[0].diagnosis?(patient[0].diagnosis):('No Previous Diagnosis')}</div>
+                        <h3>Medicines</h3>
+                        <div className='custom-input'>{patient[0].medicines?(patient[0].medicines):('No Previous Medicines')}</div>
                         <h3>Phone Number</h3>
                         <div className='custom-input'>{patient[0].phone}</div>
                         <div className='row'>
@@ -108,7 +111,12 @@ const EndSession=({data,match})=>{
                             <div className='custom-input date'>{patient[0].date}</div>
                             </div>
                         </div>
-                        <button className='btn' onClick={()=>SetSession(true)}>Start Meeting</button>
+                        {location.state?(
+                            location.state.prev?(null):(<button className='btn' onClick={()=>SetSession(true)}>Start Meeting</button>)
+                        ):(
+                            <button className='btn' onClick={()=>SetSession(true)}>Start Meeting</button>
+                        )}
+                        
                     </div>
                         </div>)}
                     

@@ -15,7 +15,7 @@ const Logout =({avatar ,name})=>{
         <div className="profile_logout">
             <div className='row'>
                 <img src={avatar} alt='user avatar'/>
-                <div className='logout-data'>
+                <div className='logout-data' onClick={()=>history.push('/setting')}>
                 <h4>{name}</h4>
                 <p>see your profile</p>
                 </div>

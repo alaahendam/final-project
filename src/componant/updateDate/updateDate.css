@@ -1,0 +1,53 @@
+.updateDate .available_dates{
+    background-color: #f4f4f4;
+    height: 38px;
+    width: 353px;
+    margin: auto;
+    margin-bottom: 7px;
+    padding-top: 7px;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+    padding-left: 0px;
+}
+.updateDate .delete{
+    width: 92px;
+    height: 56px;
+    background-color: #f4f4f4;
+    position: absolute;
+    top: -56px;
+    border-radius: 7px;
+}
+.updateDate .delete h3{
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 13px;
+    cursor: pointer;
+}
+.updateDate .available_dates .row{
+    display: flex;
+    justify-content:unset;
+}
+.updateDate .available_dates i{
+    margin-top: 5px;
+    margin-left: 20px;
+    margin-right: -12px;
+}
+.updateDate .available_dates .updateicon{
+    position: relative;
+}
+.updateDate .available_dates .updateicon i{
+    margin-top: 4px;
+    margin-left: 0px;
+    margin-right: 0px;
+    cursor: pointer;
+}
+.updateDate .available_dates p{
+    width: 300px;
+}
+
+
+
+

@@ -34,7 +34,7 @@
 .DoctorArtboard-header p{
     font-size: 13px;
 }
-.DoctorArtboard a{
+.DoctorArtboard button{
     display:inline-block;
     background-color: #61C5F7;
     color: white;
@@ -47,6 +47,9 @@
     -moz-border-radius: 8px;
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
 }
 
 .DoctorArtboard .appointment{
@@ -90,10 +93,7 @@ td {
       width: 257px;
       height: 44px;
   }
-.DoctorArtboard .btn{
-    margin-bottom: 0px;
-    margin-left: 50px;
-}
+
 tr:hover{
     background-color: #F4FBFE;
   }
@@ -122,5 +122,9 @@ td:nth-child(2) {
 }
 .DoctorArtboard .appointment .appointment-header h3{
     margin-top: 4px;
-    width: 785px;
+    width: 630px;
+}
+.DoctorArtboard .appointment .appointment-header p{
+    width: 136px;
+    margin-right: -9px;
 }

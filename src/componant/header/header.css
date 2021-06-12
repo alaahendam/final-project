@@ -1,0 +1,11 @@
+.search{
+    width: 75%;
+    max-height: 400px;
+    background-color: white;
+    position: absolute;
+    top: 54px;
+    left: 18px;
+    border-radius: 7px;
+    padding: 13px;
+    
+}

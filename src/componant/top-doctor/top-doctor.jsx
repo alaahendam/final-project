@@ -1,7 +1,9 @@
-import react from 'react';
+import React from 'react';
+import {useHistory} from 'react-router-dom'
 import './top-doctor.css'
-import Doctor from '../../image/Doctor.png'
-const TopDoctor =({name,spec_id,specialization,clinic_location,reviews,...doctor})=>{
+
+const TopDoctor =({name,avatar,id,spec_id,specialization,clinic_location,reviews,...doctor})=>{
+    const history =useHistory()
     var index=reviews.rates
     let list=[]
     for (let i=1; i<=5;i++) {
@@ -14,8 +16,8 @@ const TopDoctor =({name,spec_id,specialization,clinic_location,reviews,...doctor
       }
     return(
         
-        <div className='topdoctor-componant'>
-            <img src={Doctor} alt='doctor img'/>
+        <div className='topdoctor-componant' onClick={()=>history.replace({pathname:`/doctor`,state: { id: id}})}>
+            <img src={avatar} alt='doctor img'/>
             <div className='row'>
             <div className='topdoctor-data'>
                 <h3>{name}</h3>

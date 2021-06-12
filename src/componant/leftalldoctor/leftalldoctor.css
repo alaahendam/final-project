@@ -4,7 +4,7 @@
     min-height: 88px;
     margin: auto;
     margin-bottom: 10px;
-    background-color: #F4FBFE;
+    background-color: #f4f4f4;
     border-radius: 7px;
     -webkit-border-radius: 7px;
     -moz-border-radius: 7px;
@@ -12,11 +12,19 @@
     -o-border-radius: 7px;
     cursor: pointer;
 }
+.alldoctor-componant:hover{
+    background-color: #f4fbfe;
+}
 .alldoctor-componant img{
     height: 60px;
     width: 60px;
     margin-top: 15px;
     margin-left: 8px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
 }
 .alldoctor-componant .alldoctor-data {
     width: 360px;

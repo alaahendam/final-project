@@ -3,6 +3,7 @@ import './setting.css'
 import '../../componant/container/container.css'
 import Header from '../../componant/header/header'
 import  Menu  from '../../componant/menu/menu'
+import Dates from '../../componant/Date/Date'
 class Setting extends react.Component{
     constructor(){
         super()
@@ -16,26 +17,29 @@ class Setting extends react.Component{
             avatar:null,
             current:'',
             new:'',
-            avatarimg:'https://thediseasefighter.herokuapp.com/static/default.png'
+            avatarimg:'https://thediseasefighter.herokuapp.com/static/default.png',
+            date:'',
+            activeDates:true
         }
     }
-    
-    componentDidCatch(){
+    componentDidMount() {    
         fetch("https://thediseasefighter.herokuapp.com/user", {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${window.localStorage.getItem(
-                "token"
-            )}`,
-              "Content-Type": "application/json",
-          },
-      })
-          .then((res) => res.json())
-          .then((data) => {
-              this.setState({about:data.about,location:data.location,phone:data.phone,gender:data.gender})
-              })
-          .catch((err) => {console.log(err)});
+                    method: "GET",
+                    headers: {
+                        Authorization: `Bearer ${window.localStorage.getItem(
+                            "token"
+                        )}`,
+                        "Content-Type": "application/json",
+                    },
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log(data)
+                        this.setState({about:data.about,location:data.location,phone:data.phone,gender:data.gender})
+                    })
+                    .catch((err) => console.log(err));
     }
+
     Submitavatar =()=>{
         console.log(this.state.avatar)
         var data = new FormData()
@@ -100,28 +104,6 @@ class Setting extends react.Component{
                 })
             .catch((err) => {console.log(err)});
        }
-       ChangeDate=()=>{
-
-     fetch("https://thediseasefighter.herokuapp.com/doctors/dates", {
-         method: "POST",
-         body: JSON.stringify({
-            "start_time": "01:00 pm",
-            "end_time": "011:30 pm",
-            "day":"Wednesday"
-            }),
-         headers: {
-           Authorization: `Bearer ${window.localStorage.getItem(
-               "token"
-           )}`,
-             "Content-Type": "application/json",
-         },
-     })
-         .then((res) => res.json())
-         .then((data) => {
-             console.log(data)
-             })
-         .catch((err) => {console.log(err)});
-    }
     render(){
         return(
             <div className='setting1'>
@@ -164,19 +146,16 @@ class Setting extends react.Component{
                                     <input type='password' className='text' onChange={(e)=>this.setState({current:e.target.value})}/>
                                     <label htmlFor="gender">New Password</label>
                                     <input type='password' className='text' onChange={(e)=>this.setState({new:e.target.value})}/>
-                                    <button className='btn' onClick={this.ChangeDate}>Save Change</button>
-                                    <div>
-                                    <select className='gender' onChange={(e)=>{this.setState({gender:e.target.value})}}>
-                                        <option value='none' selected disabled hidden>DAY</option>
-                                        <option>Saturday</option>
-                                        <option>Sunday</option>
-                                        <option>Monday</option>
-                                        <option>Tuesday</option>
-                                        <option>Wednesday</option>
-                                        <option>Thursday</option>
-                                        <option>Friday</option>
-                                    </select>
-                                    </div>
+                                    <button className='btn' onClick={this.changepass}>Save Change</button>
+                                    {
+                                        window.localStorage.getItem('doctor')?(
+                                            this.state.activeDates?(
+                                                <Dates setState={state => this.setState(state) }/>
+                                            ):(null)
+                                            
+                                        ):(null)
+                                    }
+                                    
                                 </div>
                             )}
                             

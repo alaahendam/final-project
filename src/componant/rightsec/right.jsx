@@ -1,6 +1,5 @@
 import react from 'react'
 import './right.css'
-import { withRouter ,Link} from 'react-router-dom';
 import TopDoctor from '../top-doctor/top-doctor'
 class Right extends react.Component{
     constructor(props){
@@ -36,8 +35,6 @@ class Right extends react.Component{
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data.doctors)
-                data.doctors.map((doctor)=>console.log(doctor))
                 this.setState({all_doctors:data.doctors})
             })
             .catch((err) => console.log(err));

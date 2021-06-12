@@ -1,4 +1,4 @@
-import react from 'react'
+import {React} from 'react'
 import { Link } from 'react-router-dom'
 import './Home.css'
 import logoimg from '../../image/logo.png'
@@ -26,7 +26,7 @@ const Home=()=>{
                 <div className="home-info">
                     <h3>Sharing Vitality</h3>
                     <p>Clean design and advanced digital solutions</p>
-                    <Link to="#" className="btn">Get Started</Link>
+                    <Link to="/home" className="btn">Get Started</Link>
                 </div>
                 <div className="home-img">
                     <img src={Doctorimg} alt="doctor"/>

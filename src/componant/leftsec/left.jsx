@@ -1,10 +1,9 @@
 import react from 'react'
 import './left.css'
-import Brain from '../../image/Brain.png'
-import { withRouter ,Link} from 'react-router-dom';
-import specializations from './data'
 import Appointment from '../appointment/appointment'
-
+import AllSession from '../all-Session/all-Session'
+import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 class Left extends react.Component{
     constructor(props){
         super(props)
@@ -13,12 +12,14 @@ class Left extends react.Component{
             categorie:true,
             specname:'',
             specid:[],
-            nextapp:'appointment-activate',
-            prevapp:'',
-            nextdata:[],
-            prevdata:[]
+            nextapp:true,
+            active_res:false,
+            prediction_result:[],
+            error:'',
+            updatesession:true
         }
     }
+    
     componentDidMount() {
         fetch("https://thediseasefighter.herokuapp.com/specializations", {
                     method: "GET",
@@ -32,19 +33,34 @@ class Left extends react.Component{
                         
                     })
                     .catch((err) => console.log(err));
-        fetch("https://thediseasefighter.herokuapp.com/sessions", {
-            method: "GET",
-            headers: {
-                Authorization: `Bearer ${window.localStorage.getItem(
-                    "token"
-                )}`,
-                "Content-Type": "application/json",
-            },
-        })
+        
+    }
+    uploadModel=(e)=>{
+        var modelname=this.state.specname.toLowerCase()
+        if(modelname==='chest'){
+            modelname='covid19'
+        }
+        this.setState({active_res:true,prediction_result:[],error:''})
+        const file=e.target.files[0]
+        const formData = new FormData();
+        formData.append("file",file);
+        console.log(formData);
+        fetch(
+            `https://thediseasefighter.herokuapp.com/model/${modelname}`,
+            {
+                method: "POST",
+                body: formData,
+                mode: "cors",
+                headers: {
+                    Authorization: `Barer ${window.localStorage.getItem(
+                        "token"
+                    )}`,
+                },
+            }
+        )
             .then((res) => res.json())
             .then((data) => {
-                console.log(data)
-                this.setState({prevdata:data.previous_appointments,nextdata:data.future_appointments})
+                this.setState({prediction_result:data.prediction_result,error:data.message})
             })
             .catch((err) => console.log(err));
     }
@@ -61,27 +77,53 @@ class Left extends react.Component{
                 
                 </div> </div>
                 ):(<div className='model'> 
-                <i class="fa fa-arrow-left" onClick={()=>this.setState({categorie:true})}> GO BACK</i>
+                <i className="fa fa-arrow-left go-back" onClick={()=>this.setState({categorie:true,active_res:false})}> GO BACK</i>
                 <h3> Diagnosis disease with ML</h3>
                 <h4> This is {this.state.specname} Clink</h4>
+                <div className='model2'>
+                    {this.state.active_res?(
+                        <div>
+                            {!this.state.prediction_result?(
+                                <p>Please Wait , {this.state.error}</p>
+                                )
+                                
+                            :(<div className='Circular-container'>
+                                {this.state.prediction_result.map((pred)=>(
+                                <div className='test'>
+                                <CircularProgressbarWithChildren value={pred.percentage}>
+                                <p className='pred'>{pred.percentage}%</p>
+                                    <p>{pred.type}</p>
+                                </CircularProgressbarWithChildren>
+                            </div>))}
+                        </div>
+                        )}
+                        </div>
+                        
+                    ):
+                    (
+                        <div className="drag-area" >
+                    <br />
+                    <label htmlFor='model'>
+                    <div className="icon" htmlFor='model'><i class="fa fa-upload"></i></div>
+                        Drop Your Files Here</label>
+                    <input type="file" id='model' hidden onChange={this.uploadModel}/>
+                </div>
+                    )}
+                
+                
+                </div>
                 </div>)}
                 
             </div>
             <div className='bottom-left'>
                 <div className='appointment-header'>
                     <h3>My Appointment</h3>
-                    <p className={`${this.state.nextapp}`} onClick={()=>this.setState({nextapp:'appointment-activate',prevapp:''})}>Next Appointment</p>
-                    <p className={`${this.state.prevapp}`} onClick={()=>this.setState({nextapp:'',prevapp:'appointment-activate'})}>Prevoius Appointment</p>
+                    <p className={this.state.nextapp?('appointment-activate'):(null)} onClick={()=>this.setState({nextapp:true})}>Next Appointment</p>
+                    <p className={this.state.nextapp?(null):('appointment-activate')} onClick={()=>this.setState({nextapp:false})}>Prevoius Appointment</p>
                 </div>
-                {console.log(this.state.nextdata)}
-                {this.state.nextdata?(
-                    this.state.nextdata.map((app)=> <Appointment key={app.id}{...app}/>)
-                ):(
-                    this.state.prevdata?(
-                        this.state.prevdata.map((app)=> <Appointment key={app.id}{...app}/>)
-                    ):(null)
-                    
-                )}
+                {this.state.updatesession?(
+                    <AllSession nextapp={this.state.nextapp} setState={state => this.setState(state)}/>
+                ):(null)}
                 
             </div>
         </div>

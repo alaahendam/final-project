@@ -65,6 +65,9 @@
     margin-right: 30px;
     margin-left: 29px;
 }
+.go-back{
+    cursor: pointer;
+}
 .appointment-header p{
     font-size: 12px;
     margin: 5px;
@@ -74,4 +77,69 @@
 .appointment-activate{
     color: #61C5F7;
     border-bottom:1px solid #61C5F7;
+}
+.model2{
+    padding-top: 20px;
+}
+.CircularProgressbar-path {
+    stroke: red;
+  }
+  .CircularProgressbar-trail {
+    stroke: gray;
+  }
+  .CircularProgressbar-background {
+    fill: green;
+  }
+  .Circular-container{
+    width: 400px;
+    height: 150px;
+      display: flex;
+      margin: auto;
+  }
+.Circular-container .test{
+    margin-right: 13px;
+    width: 150px;
+    height: 150px;
+}
+.Circular-container .test p{
+    font-size: 13px;
+}
+.Circular-container .test .pred{
+    font-size: 18px;
+    color: #14274E;
+
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+.drag-area{
+  border: 2px dashed #79D5F5;
+  height: 180px;
+  width:350px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #F4FBFE;
+  color: #A8ABB7;
+  font-size: 20px;
+  margin: auto;
+}
+.drag-area .active{
+  border: 2px solid #79D5F5;
+}
+.drag-area i {
+    color: #79D5F5;
+    font-size: 33px;
+    margin-bottom: 0px;
+    cursor: pointer;
+    margin-top: 35px;
+}
+.drag-area label{
+    font-size: 17px;
+    cursor: pointer;
+    margin-top: -35px;
+    width: 294px;
+    height: 113px;
+    text-align: center;
 }

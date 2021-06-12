@@ -1,6 +1,5 @@
-import react from 'react'
+import React from 'react'
 import './left-doctor.css'
-import Doctor from '../../image/Doctor.png'
 import LeftAllDoctor from '../../componant/leftalldoctor/leftalldoctor'
 const LeftDoctor = ({all_doctors, setState})=>{
 

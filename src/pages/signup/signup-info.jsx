@@ -1,7 +1,7 @@
 import react from 'react'
 import '../global-login-style.css'
 import logoimg from '../../image/logo.png'
-
+import Dates from '../../componant/Date/Date'
 import { withRouter ,Link} from 'react-router-dom';
 
 class SignUpInfo extends react.Component{
@@ -12,17 +12,31 @@ class SignUpInfo extends react.Component{
             phone: '',
             gender: '',
             Specialist:'',
+            about:'',
+            specializations:[],
+            activeDates:false
         }
+    }
+    componentDidMount(){
+        fetch("https://thediseasefighter.herokuapp.com/specializations", {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log(data)
+                        this.setState({specializations:data.specializations})
+                        
+                    })
+                    .catch((err) => console.log(err));
     }
     
     Submit =(event)=>{ 
         event.preventDefault();
-        const {location, phone, gender, Specialist}=this.state;
-        const data={'location':location,'clinck_location':location,'phone':phone,'gender':gender, 'spec_id':Specialist};
-        console.log(data);
-        console.log(window.localStorage.getItem(
-            "access_token"
-        ))
+        const {location, phone, gender, Specialist,about}=this.state;
+        const data={'location':location,'clinic_location':location,'phone':phone,'gender':gender, 'spec_id':Specialist , 'about':about};
         fetch("https://thediseasefighter.herokuapp.com/user", {
           method: "PATCH",
           body: JSON.stringify(data),
@@ -48,7 +62,7 @@ class SignUpInfo extends react.Component{
       };
    render(){
     return(
-        <div>
+        <div className='sign-info'>
             {console.log(this.props.spec)}
             <div className="form-inner">
             <div className="otherform" id="second">
@@ -57,15 +71,41 @@ class SignUpInfo extends react.Component{
 
                         <form className="doc" onSubmit={this.Submit}>
                             <label>Location</label>
-                            <input type="text" name="location" value={this.state.location} onChange={this.handleChange}/>
+                            <input type="text" name="location" value={this.state.location} onChange={this.handleChange} required/>
 
                             <label>Phone Number</label>
                             <input type="text" name="phone"value={this.state.phone} onChange={this.handleChange} required/>
 
                             <label>Gender</label>
-                            <input type="text"  name="gender" value={this.state.gender} onChange={this.handleChange} required />
+                            <select class="Gender" onChange={(e)=>{
+                                        this.setState({gender:e.target.value})
+                                    }}>
+                                         <option value='none' selected disabled hidden>Select the Gender</option>
+                                         <option >Male</option>
+                                         <option >Female</option>
+                                    </select>
+                                    <label>About You</label>
+                            <input type="text" name="about" value={this.state.about} onChange={this.handleChange} required/>
                             {this.props.spec?(<div><label >Specialist</label>
-                                <input id="doctori" type="text"  name="Specialist" value={this.state.Specialist} onChange={this.handleChange} required /></div>
+                                <select class="days" onChange={(e)=>{
+                                        const specId = e.target.selectedIndex
+                                        this.setState({Specialist:e.target[specId].attributes['data-id'].value})
+                                    }}>
+                                    <option value='none' selected disabled hidden>Select the specialization</option>
+                                    {this.state.specializations.map((date) => {
+                                        return(<option data-id={date.id} name={date.name}>{date.name}</option> )
+                                    })}
+                                </select>
+                                <div className='signdate'>
+                                    <p className='signdate-p' onClick={()=>this.setState({activeDates:!this.state.activeDates})}>Choose Time You Avalibale</p>
+                                    {this.state.activeDates?(
+                                        <div className='signdate-data'>
+                                            <Dates setState={state => this.setState(state) }/>
+                                        </div>
+                                    ):(null)}
+                                </div>
+                                
+                                </div>
                             ):(null)}
                             
 
@@ -73,8 +113,6 @@ class SignUpInfo extends react.Component{
                                 <p>By pressing “Done” you agree to our</p>
                                 <a href="#" className="term">terms & conditions</a>
                             </div>
-
-
                             <a href="#"><input type="submit" value="Done" /></a>
                         </form>
                     </div>

@@ -1,6 +1,5 @@
 import react from 'react'
 import '../global-login-style.css'
-
 import Doctorimg from '../../image/Doctor.svg'
 import Patientimg from '../../image/Patient.svg'
 import { withRouter ,Link} from 'react-router-dom';
@@ -41,6 +40,7 @@ class SignUp extends react.Component{
                 this.props.setcars('next')
                 if(data.is_doctor){
                     this.props.setspec(true)
+                    window.localStorage.setItem('doctor',true)
                 }
                 else{
                     this.props.setspec(false)

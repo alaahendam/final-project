@@ -370,3 +370,29 @@ p{
     color: red;
     font-size: 12px;
 }
+.sign-info select{
+    padding-left: 88px;
+    outline: none;
+    border: none;
+}
+.signdate{
+    margin-top: 13px;
+    position: relative;
+}
+.signdate .signdate-p{
+    background-color: #f4f4f4;
+    margin: auto;
+    width: 287px;
+    height: 40px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 7px;
+}
+.signdate-data{
+    background-color: #f4fbfe;
+    position: absolute;
+    border-radius: 7px;
+    bottom: 48px;
+}

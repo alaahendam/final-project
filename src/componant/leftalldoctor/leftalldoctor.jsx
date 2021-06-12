@@ -1,7 +1,9 @@
-import react from 'react';
+import React from 'react';
+import {useHistory,useLocation,useRouteMatch} from 'react-router-dom'
 import './leftalldoctor.css'
-import Doctor from '../../image/Doctor.png'
-const LeftAllDoctor =({name,id,spec_id,specialization,clinic_location,reviews,about,setState,...doctor})=>{
+const LeftAllDoctor =({name,avatar,id,spec_id,specialization,clinic_location,reviews,about,setState,...doctor})=>{
+    const history =useHistory()
+    const match =useRouteMatch()
     var index=reviews.rates
     let list=[]
     for (let i=1; i<=5;i++) {
@@ -13,12 +15,14 @@ const LeftAllDoctor =({name,id,spec_id,specialization,clinic_location,reviews,ab
         }
       }
       const SendAbout=(id)=>{
-        setState({id:id,about_flag:true})
+        setState({about_flag:true})
+        history.replace({pathname:`${match.url}`,state: { id: id }})
+
       }
     return(
         
         <div className='alldoctor-componant' onClick={()=>SendAbout(id)}>
-            <img src={Doctor} alt='doctor-img'/>
+            <img src={avatar} alt='doctor-img'/>
             <div className='row'>
             <div className='alldoctor-data'>
             <h3>{name}</h3>
